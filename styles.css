@@ -4,7 +4,7 @@ body {
   font-family: 'Onest', sans-serif;
   margin-left: 150px;
   margin-right: 150px;
-  background-image: url('assets/svg/curve.svg'),url('assets/svg/lines.svg');
+  background-image: url('assets/svg/curve.svg'), url('assets/svg/lines.svg');
   background-position: top right 100px;
   background-repeat: no-repeat;
 }
@@ -35,12 +35,15 @@ header {
   padding-top: 15px;
   padding-bottom: 15px;
   position: absolute;
-  top: 115%; /* Adjust the distance from the logo */
+  top: 115%;
+  /* Adjust the distance from the logo */
   left: 72%;
-  margin-left: -45px; /* Center the tooltip */
+  margin-left: -45px;
+  /* Center the tooltip */
   opacity: 0;
   transition: opacity 0.3s;
-  white-space: nowrap; /* Display text in a single line */
+  white-space: nowrap;
+  /* Display text in a single line */
   font-size: 16px;
   font-family: Onest;
   font-style: normal;
@@ -92,8 +95,17 @@ nav a {
 }
 
 nav a:hover {
-  border-color: #ffffff;
   color: #ffffff;
+  border: 2px solid #ffffff;
+}
+
+.active-item {
+  color: #ffffff;
+  border: 2px solid #ffffff;
+}
+
+.inactive-item {
+  color: #7A746F;
 }
 
 @media screen and (max-width: 600px) {
@@ -101,5 +113,27 @@ nav a:hover {
     margin-left: 20px;
     width: auto;
     height: auto;
+  }
+
+  body {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+
+  header {
+    padding: 10px;
+  }
+
+  nav {
+    margin-left: 20px;
+  }
+
+  nav ul {
+    flex-direction: column;
+  }
+
+  nav li {
+    margin-right: 0;
+    margin-bottom: 10px;
   }
 }
