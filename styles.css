@@ -119,19 +119,42 @@ nav a:hover {
 .hello-text {
   color: #FF5100;
   display: inline-block;
-  transition: opacity 0.5s ease; /* Added transition for opacity */
-  opacity: 1; /* Initial opacity */
+  transition: opacity 0.5s ease;
+  /* Added transition for opacity */
+  opacity: 1;
+  /* Initial opacity */
 }
 
 .additional-text {
   color: #fcfcfc;
   font-family: 'Onest', sans-serif;
-  font-size: 32px;
+  font-size: 40px;
   font-style: normal;
   font-weight: 200;
   line-height: normal;
   margin-top: -20px;
 }
+
+
+
+.scroll-down-icon {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  cursor: pointer;
+}
+
+.scroll-down-icon img {
+  width: 100px;
+  /* Adjust the size as needed */
+  height: 100px;
+  display: block;
+  margin: 0 auto;
+}
+
+
+
 
 
 @media screen and (max-width: 600px) {
