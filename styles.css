@@ -36,14 +36,11 @@ header {
   padding-bottom: 15px;
   position: absolute;
   top: 115%;
-  /* Adjust the distance from the logo */
   left: 72%;
   margin-left: -45px;
-  /* Center the tooltip */
   opacity: 0;
   transition: opacity 0.3s;
   white-space: nowrap;
-  /* Display text in a single line */
   font-size: 16px;
   font-family: Onest;
   font-style: normal;
@@ -107,6 +104,35 @@ nav a:hover {
 .inactive-item {
   color: #7A746F;
 }
+
+.welcome-text {
+  font-family: 'Onest', sans-serif;
+  font-size: 64px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.2;
+  margin-left: 215px;
+  margin-top: 120px;
+  text-align: left;
+}
+
+.hello-text {
+  color: #FF5100;
+  display: inline-block;
+  transition: opacity 0.5s ease; /* Added transition for opacity */
+  opacity: 1; /* Initial opacity */
+}
+
+.additional-text {
+  color: #fcfcfc;
+  font-family: 'Onest', sans-serif;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 200;
+  line-height: normal;
+  margin-top: -20px;
+}
+
 
 @media screen and (max-width: 600px) {
   .logo {
