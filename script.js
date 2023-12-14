@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', function () {
   const navItems = document.querySelectorAll('nav a');
   const logo = document.querySelector('.logo');
+  const menuIcon = document.querySelector('.menu-icon');
 
   navItems.forEach(item => {
     item.addEventListener('mouseover', () => {
@@ -48,7 +49,6 @@ document.addEventListener('DOMContentLoaded', function () {
     tooltipText.style.visibility = 'hidden';
   });
 
-
   const helloText = document.querySelector('.hello-text');
 
   const greetings = [
@@ -69,16 +69,26 @@ document.addEventListener('DOMContentLoaded', function () {
 
   setInterval(changeHelloText, 2000); // Change greeting every 2 seconds
 
+  function toggleMenu() {
+    const nav = document.querySelector('nav');
+    nav.classList.toggle('active');
+  }
 
-  const scrollDownIcon = document.getElementById('scroll-down-icon');
-  scrollDownIcon.addEventListener('click', function () {
-    const projectsSection = document.getElementById('projects');
+  // Add click event for the menu icon
+  menuIcon.addEventListener('click', toggleMenu);
 
-    window.scrollTo({
-      top: projectsSection.offsetTop - header.offsetHeight + 1, // Adjust for header height
-      behavior: 'smooth',
-    });
+
+
+  const downIconContainer = document.querySelector('.down-icon-container');
+  const roundedText = document.querySelector('.rounded-text');
+
+  // Add mouseover and mouseout event listeners for the down icon container
+  downIconContainer.addEventListener('mouseover', function () {
+    roundedText.style.display = 'block'; // Show the rotating text on mouseover
   });
 
+  downIconContainer.addEventListener('mouseout', function () {
+    roundedText.style.display = 'none'; // Hide the rotating text on mouseout
+  });
 
 });

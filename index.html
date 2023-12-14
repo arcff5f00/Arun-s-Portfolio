@@ -18,6 +18,12 @@
         <img src="assets/svg/Logo.svg" alt="Website Logo" class="logo">
         <span class="tooltip-text">Arun's Creative</span>
       </div>
+      <!-- Hamburger menu icon -->
+      <div class="menu-icon" onclick="toggleMenu()">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+      </div>
       <nav>
         <ul>
           <li><a href="#">Projects</a></li>
@@ -29,13 +35,26 @@
   </div>
 
   <div class="welcome-text">
-    <p><span class="hello-text">Hello,</span><br> I'm Arun, a UX designer.</p>
+    <p class="welcome-head-text"><span class="hello-text">Hello,</span><br> I'm Arun, a UX designer.</p>
     <p class="additional-text">I bridge the gap between user needs<br>and business goals through a blend
       of<br>thoughtful and impactful design.</p>
   </div>
 
-  <div id="scroll-down-icon" class="scroll-down-icon fade-in">
-    <img src="assets/svg/downIcon.svg" alt="Scroll Down Icon">
+  <div class="down-icon-container">
+    <img src="assets/svg/downIcon.svg" alt="Down Icon" class="down-icon">
+  </div>
+
+  <div class="rounded-text rotating">
+    <svg viewBox="0 0 200 200">
+      <path id="textPath" d="M 85,0 A 85,85 0 0 1 -85,0 A 85,85 0 0 1 85,0" transform="translate(100,100)"
+        fill="none" stroke-width="0"></path>
+      <g font-size="23px">
+        <text text-anchor="start">
+          <textPath class="coloring" xlink:href="#textPath" startOffset="0%">projects • projects • projects •
+            projects •</textPath>
+        </text>
+      </g>
+    </svg>
   </div>
 
   <script src="script.js" defer></script>
