@@ -215,6 +215,11 @@ nav a:hover {
 }
 
 
+a, button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+
 @media screen and (max-width: 600px) {
   body {
     margin-left: 10px;   /* Decreased margin-left for the entire body */
