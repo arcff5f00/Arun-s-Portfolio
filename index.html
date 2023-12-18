@@ -18,17 +18,12 @@
         <img src="assets/svg/Logo.svg" alt="Website Logo" class="logo">
         <span class="tooltip-text">Arun's Creative</span>
       </div>
-      <!-- Hamburger menu icon -->
-      <div class="menu-icon" onclick="toggleMenu()">
-        <div class="bar"></div>
-        <div class="bar"></div>
-        <div class="bar"></div>
-      </div>
+      
       <nav>
         <ul>
-          <li><a href="#">Projects</a></li>
-          <li><a href="#">About</a></li>
-          <li><a href="#">Contact</a></li>
+          <li><a href="#Projects">Projects</a></li>
+          <li><a href="#About">About</a></li>
+          <li><a href="#Contact">Contact</a></li>
         </ul>
       </nav>
     </header>
@@ -42,20 +37,10 @@
 
   <div class="down-icon-container">
     <img src="assets/svg/downIcon.svg" alt="Down Icon" class="down-icon">
+    <span class="tooltip-text-2">Projects</span>
   </div>
 
-  <div class="rounded-text rotating">
-    <svg viewBox="0 0 200 200">
-      <path id="textPath" d="M 85,0 A 85,85 0 0 1 -85,0 A 85,85 0 0 1 85,0" transform="translate(100,100)"
-        fill="none" stroke-width="0"></path>
-      <g font-size="23px">
-        <text text-anchor="start">
-          <textPath class="coloring" xlink:href="#textPath" startOffset="0%">projects • projects • projects •
-            projects •</textPath>
-        </text>
-      </g>
-    </svg>
-  </div>
+  <div class="shine" id="shine"></div>
 
   <script src="script.js" defer></script>
 </body>

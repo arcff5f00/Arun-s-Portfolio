@@ -5,26 +5,26 @@ document.addEventListener('DOMContentLoaded', function () {
 
   navItems.forEach(item => {
     item.addEventListener('mouseover', () => {
-      item.style.color = '#ffffff';
-      item.style.border = '2px solid #ffffff';
+      item.style.color = '#E9E8E4';
+      item.style.border = '2px solid #E9E8E4';
 
       // Make other items grey
       navItems.forEach(otherItem => {
         if (otherItem !== item) {
-          otherItem.style.color = '#7A746F';
+          otherItem.style.color = '#504E4A';
         }
       });
     });
 
     item.addEventListener('mouseout', () => {
       // Revert styles for the hovered item
-      item.style.color = '#ffffff';
+      item.style.color = '#E9E8E4';
       item.style.border = '2px solid transparent';
 
       // Revert styles for other items
       navItems.forEach(otherItem => {
         if (otherItem !== item) {
-          otherItem.style.color = '#ffffff';
+          otherItem.style.color = '#E9E8E4';
         }
       });
     });
@@ -69,26 +69,25 @@ document.addEventListener('DOMContentLoaded', function () {
 
   setInterval(changeHelloText, 2000); // Change greeting every 2 seconds
 
-  function toggleMenu() {
-    const nav = document.querySelector('nav');
-    nav.classList.toggle('active');
-  }
 
-  // Add click event for the menu icon
-  menuIcon.addEventListener('click', toggleMenu);
+const shineElement = document.getElementById('shine');
 
+  document.addEventListener('mousemove', function (event) {
+    // Update shine element position based on mouse coordinates
+    const mouseX = event.clientX;
+    const mouseY = event.clientY;
 
+    shineElement.style.left = `${mouseX - shineElement.offsetWidth / 2}px`;
+    shineElement.style.top = `${mouseY - shineElement.offsetHeight / 2}px`;
 
-  const downIconContainer = document.querySelector('.down-icon-container');
-  const roundedText = document.querySelector('.rounded-text');
+    // Show the shine element
+    shineElement.style.opacity = 1;
 
-  // Add mouseover and mouseout event listeners for the down icon container
-  downIconContainer.addEventListener('mouseover', function () {
-    roundedText.style.display = 'block'; // Show the rotating text on mouseover
+    // Optional: Hide the shine element after a short delay
+    setTimeout(() => {
+      shineElement.style.opacity = 0;
+    }, 200);
   });
 
-  downIconContainer.addEventListener('mouseout', function () {
-    roundedText.style.display = 'none'; // Hide the rotating text on mouseout
-  });
 
 });
