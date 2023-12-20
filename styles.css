@@ -1,3 +1,4 @@
+/* Global styles */
 body {
   background-color: #000000;
   font-family: 'Onest', sans-serif;
@@ -6,10 +7,11 @@ body {
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
-  overflow-y: scroll; /* Add this line to enable the vertical scrollbar */
+  overflow-y: scroll;
   overflow-x: hidden;
 }
 
+/* Header styles */
 header {
   display: flex;
   justify-content: space-between;
@@ -110,6 +112,7 @@ nav a:hover {
   color: #434343;
 }
 
+/* Welcome text styles */
 .welcome-text {
   color: #E9E8E4;
   font-family: 'Onest', sans-serif;
@@ -120,6 +123,7 @@ nav a:hover {
   margin-left: 365px;
   margin-top: 6vw;
   text-align: left;
+  margin-bottom: 15vh;
 }
 
 .hello-text {
@@ -154,29 +158,38 @@ nav a:hover {
   margin-top: -20px;
 }
 
+/* Down icon and tooltip styles */
 .down-icon-container {
-  position: fixed;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 30vh;
 }
 
 .down-icon {
   cursor: pointer;
   border: 2px solid transparent;
+  border-radius: 50%;
   padding: 10px;
+  transition: border 0.3s;
   z-index: 1;
 }
 
 .down-icon:hover {
   border: 2px solid #FF5301;
-  border-radius: 50%;
   padding: 10px;
-  z-index: 1;
 }
 
-.tooltip-text-2 {
+
+
+.tooltip-container-down {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.tooltip-text-down {
   visibility: hidden;
   background-color: #ff5100;
   color: #E9E8E4;
@@ -184,9 +197,9 @@ nav a:hover {
   border-radius: 39px;
   padding: 18px;
   position: absolute;
-  bottom: 120%;
+  bottom: 120%; /* Adjusted from 130% to 100% */
   left: 50%;
-  transform: translateX(-50%);
+  transform: translateX(-50%); /* Adjusted from margin-left */
   opacity: 0;
   transition: opacity 0.3s;
   white-space: nowrap;
@@ -198,31 +211,33 @@ nav a:hover {
   z-index: 1;
 }
 
-.tooltip-text-2:after {
+.tooltip-text-down:after {
   content: '';
   position: absolute;
   top: 100%;
   left: 50%;
-  transform: translateX(-50%);
+  margin-left: -10px;
   border-width: 10px;
   border-style: solid;
-  border-color: #FF5301 transparent transparent transparent;
-  z-index: 1;
+  border-color: #ff5100 transparent transparent transparent; /* Change the order of colors */
 }
 
-.down-icon-container:hover .tooltip-text-2 {
+.tooltip-container-down:hover .tooltip-text-down {
   visibility: visible;
   opacity: 1;
   z-index: 1;
 }
 
+
+/* Shine animation styles */
 .shine {
-  position: absolute;
+  position: fixed;
   width: 290px;
   height: 290px;
   background-image: url('assets/svg/shine.svg');
   background-size: cover;
   pointer-events: none;
   opacity: 0;
+  animation: fadeInOut 2s forwards;
   mix-blend-mode: color-dodge;
 }
