@@ -1,42 +1,65 @@
 document.addEventListener('DOMContentLoaded', function () {
   const navItems = document.querySelectorAll('nav a');
   const logo = document.querySelector('.logo');
+  const downIcon = document.getElementById('downIcon');
+  const projectsSection = document.querySelector('.projects-section');
+
+  navItems.forEach(item => {
+    item.addEventListener('click', (event) => {
+      event.preventDefault(); // Prevent the default navigation behavior
+
+      const targetId = item.getAttribute('href').substring(1); // Get the target section id
+      const targetSection = document.getElementById(targetId);
+
+      // Scroll to the target section with a smooth transition
+      targetSection.scrollIntoView({
+        behavior: 'smooth',
+      });
+    });
+  });
+
+  if (logo) {
+    logo.addEventListener('click', function () {
+      window.location.href = 'index.html';
+    });
+  }
+
+  if (downIcon && projectsSection) {
+    downIcon.addEventListener('click', function () {
+      projectsSection.scrollIntoView({
+        behavior: 'smooth',
+      });
+    });
+  }
+
 
   navItems.forEach(item => {
     item.addEventListener('mouseover', () => {
-      item.style.color = '#E9E8E4';
-      item.style.border = '2px solid #E9E8E4';
+      item.style.color = '#FFFFFF';
+      item.style.border = '2px solid #FFFFFF';
 
       // Make other items grey
       navItems.forEach(otherItem => {
         if (otherItem !== item) {
-          otherItem.style.color = '#504E4A';
+          otherItem.style.color = '#434343';
         }
       });
     });
 
     item.addEventListener('mouseout', () => {
       // Revert styles for the hovered item
-      item.style.color = '#E9E8E4';
+      item.style.color = '#FFFFFF';
       item.style.border = '2px solid transparent';
 
       // Revert styles for other items
       navItems.forEach(otherItem => {
         if (otherItem !== item) {
-          otherItem.style.color = '#E9E8E4';
+          otherItem.style.color = '#FFFFFF';
         }
       });
     });
   });
 
-  // Add click event for the logo
-  if (logo) {
-    logo.addEventListener('click', function () {
-      // Set the window location to the home page or refresh the page
-      window.location.href = 'index.html';
-      // Alternatively, use window.location.reload(true) to force a reload
-    });
-  }
 
 
   const helloText = document.querySelector('.hello-text');
@@ -54,36 +77,61 @@ document.addEventListener('DOMContentLoaded', function () {
       helloText.textContent = greetings[index];
       helloText.style.opacity = 1;
       index = (index + 1) % greetings.length;
-    }, 500); // Adjust the duration as needed
+    }, 500);
   }
 
-  setInterval(changeHelloText, 2000); 
+  setInterval(changeHelloText, 2000);
 
-
-const shineElement = document.getElementById('shine');
+  const shineElement = document.getElementById('shine');
 
   if (shineElement) {
+    let isMouseMoving = false;
+  
     document.addEventListener('mousemove', function (event) {
-      // Update shine element position based on mouse coordinates
+      isMouseMoving = true;
+  
       const mouseX = event.clientX;
       const mouseY = event.clientY;
-
-      shineElement.style.left = `${mouseX - shineElement.offsetWidth / 2}px`;
-      shineElement.style.top = `${mouseY - shineElement.offsetHeight / 2}px`;
-
-      // Show the shine element
-      shineElement.style.opacity = 1;
-
-      // Optional: Hide the shine element after a short delay
-      setTimeout(() => {
+  
+      // Check if the mouse is within the home section
+      const homeSection = document.querySelector('.home-section');
+      const homeSectionRect = homeSection.getBoundingClientRect();
+  
+      const projectsSection = document.querySelector('.projects-section');
+      const projectsSectionRect = projectsSection.getBoundingClientRect();
+  
+      if (
+        mouseX >= homeSectionRect.left &&
+        mouseX <= homeSectionRect.right &&
+        mouseY >= homeSectionRect.top &&
+        mouseY <= homeSectionRect.bottom &&
+        !(mouseX >= projectsSectionRect.left &&
+          mouseX <= projectsSectionRect.right &&
+          mouseY >= projectsSectionRect.top &&
+          mouseY <= projectsSectionRect.bottom)
+      ) {
+        shineElement.style.left = `${mouseX - shineElement.offsetWidth / 2}px`;
+        shineElement.style.top = `${mouseY - shineElement.offsetHeight / 2}px`;
+  
         shineElement.style.opacity = 1;
-      }, 200);
+  
+        setTimeout(() => {
+          if (!isMouseMoving) {
+            shineElement.style.opacity = 0;
+          }
+        }, 200);
+      } else {
+        shineElement.style.opacity = 0;
+      }
+    });
+  
+    document.addEventListener('mouseout', function () {
+      isMouseMoving = false;
+      shineElement.style.opacity = 0;
     });
   }
 
-
-
-  const downIcon = document.getElementById('downIcon');
+ 
   const tooltipTextDown = document.querySelector('.tooltip-text-down');
 
   if (downIcon && tooltipTextDown) {
@@ -97,5 +145,11 @@ const shineElement = document.getElementById('shine');
       tooltipTextDown.style.opacity = 0;
     });
   }
+
+
+  const homeSection = document.querySelector('.home-section');
+  homeSection.scrollIntoView({
+    behavior: 'smooth',
+  });
 
 });

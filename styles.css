@@ -11,6 +11,11 @@ body {
   overflow-x: hidden;
 }
 
+.home-section {
+  position: relative;
+  height: 100vh;
+}
+
 /* Header styles */
 header {
   display: flex;
@@ -229,6 +234,7 @@ nav a:hover {
 }
 
 
+
 /* Shine animation styles */
 .shine {
   position: fixed;
@@ -241,3 +247,17 @@ nav a:hover {
   animation: fadeInOut 2s forwards;
   mix-blend-mode: color-dodge;
 }
+
+
+/* Add these styles to your existing CSS */
+
+.projects-section {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #D6D1CB;
+}
+
+
